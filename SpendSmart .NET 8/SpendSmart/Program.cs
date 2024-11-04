@@ -12,7 +12,7 @@ namespace SpendSmart
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<SpendSmartDbContext>(options =>
-                    options.UseSqlServer(builder.Configuration.GetConnectionString("SpendSmartDb"))
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("AzureDb"))
              );
 
             var app = builder.Build();
