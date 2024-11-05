@@ -20,3 +20,8 @@ https://stackoverflow.com/questions/75882673/cannot-see-azure-resources-in-visua
 Nastavitve za IIS deploy:
 https://youtu.be/W_70jNp0FrQ?t=207
 
+
+Pri deploy na Azure:
+1.) Kreiraj tabele na SQL azure bazi:
+ dotnet ef database update
+dotnet ef migrations add ImeMigracije
