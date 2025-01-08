@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace NorthWindApi.Models;
 
 public partial class OrderDetail
 {
+    [Key]
     public int OrderId { get; set; }
 
     public int ProductId { get; set; }

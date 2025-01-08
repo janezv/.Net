@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace NorthWindApi.Models;
 
 public partial class Customer
 {
+    [Key]
     public string CustomerId { get; set; } = null!;
 
     public string CompanyName { get; set; } = null!;
@@ -29,5 +31,4 @@ public partial class Customer
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
-    public virtual ICollection<CustomerDemographic> CustomerTypes { get; set; } = new List<CustomerDemographic>();
 }

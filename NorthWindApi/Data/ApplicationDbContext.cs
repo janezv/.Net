@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NorthWindApi.Models;
 
 namespace NorthWindApi.Data
 {
@@ -6,6 +7,8 @@ namespace NorthWindApi.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-      //  public DbSet<YourEntity> YourEntities { get; set; }  // Zamenjajte z vašimi entitetami
+        public DbSet<Product> products { get; set; }  // Zamenjajte z vašimi entitetami
+        public DbSet<Employee> employees { get; set; }  // Zamenjajte z vašimi entitetami
+        public DbSet<Customer> customers { get; set; }  // Zamenjajte z vašimi entitetami
     }
 }

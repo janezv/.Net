@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace NorthWindApi.Models;
 
 public partial class Product
 {
+    [Key]
     public int ProductId { get; set; }
 
     public string ProductName { get; set; } = null!;
@@ -24,8 +26,6 @@ public partial class Product
     public short? ReorderLevel { get; set; }
 
     public bool Discontinued { get; set; }
-
-    public virtual Category? Category { get; set; }
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
