@@ -1,6 +1,0 @@
-
-
-
-
-
-dotnet ef dbcontext scaffold "Server=DESKTOP-1TPLI7F\SQLEXPRESS;Database=Northwind;User Id=NorthWind_app;Password=NorthWind_pass;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models --context ApplicationDbContext --force

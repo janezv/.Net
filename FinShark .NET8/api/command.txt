@@ -1,9 +1,0 @@
- 
- //revers
- dotnet ef migrations remove
- 
- 
- dotnet ef migrations add tableComment
-
- //update table
- dotnet ef database update

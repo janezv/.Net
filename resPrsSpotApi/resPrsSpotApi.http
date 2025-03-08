@@ -1,0 +1,6 @@
+@resPrsSpotApi_HostAddress = http://localhost:5092
+
+GET {{resPrsSpotApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
