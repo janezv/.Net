@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using NorthWindApi.Models;
 using NorthWindApi.Data;
 using Microsoft.EntityFrameworkCore;
+using NorthWindApi.Mappers;
+using NorthWindApi.Dtos;
 
 namespace NorthWindApi.Controllers
 {
@@ -23,6 +25,31 @@ namespace NorthWindApi.Controllers
         {
             var Employees = await _context.employees.ToListAsync();
             return Ok(Employees);
+        }
+
+        // GET: api/customer
+        [HttpGet]
+        [Route("/api/sh/Employees")]
+        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployeesSh()
+        {
+            var EmployeeShort = await _context.employees
+                .Select(e => Mappers.EmployeeMapper.EmployeeDto(e))
+                .ToListAsync();
+            return Ok(EmployeeShort);
+        }
+
+        // GET: api/customer/{id}
+        [HttpGet("/api/sh/[controller]/{id}")]
+        public async Task<ActionResult<Employee>> GetEmployeeSh(int id)
+        {
+            var employee = await _context.employees.FindAsync(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            var employeeDto=EmployeeMapper.EmployeeDto(employee);
+
+            return Ok(employeeDto);
         }
 
         // GET: api/customer/{id}
