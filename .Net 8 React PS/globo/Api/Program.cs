@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ApiPluralSight.Data;
+// using ApiPluralSight.Data;
 //using Api.Data.HouseEntity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,10 +15,10 @@ builder.Services.AddSwaggerGen();
 
 // Add Db context
 var dbProvider = builder.Configuration.GetConnectionString("Provider");
-builder.Services.AddDbContext<HouseDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnectionStrings"));
-});
+// builder.Services.AddDbContext<HouseDbContext>(options =>
+// {
+//     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnectionStrings"));
+// });
 
 var app = builder.Build();
 
