@@ -1,10 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-
-public static class SeedData
+namespace ApiPluralSight.Data
 {
-    public static void Seed(ModelBuilder builder)
+    public static class SeedData
     {
-        builder.Entity<HouseEntity>().HasData(new List<HouseEntity> {
+        public static void Seed(ModelBuilder builder)
+        {
+            builder.Entity<HouseEntity>().HasData(new List<HouseEntity> {
             new HouseEntity {
                 Id = 1,
                 Address = "12 Valley of Kings, Geneva",
@@ -45,7 +46,9 @@ public static class SeedData
                 Price = 400500
             }
         });
+        }
+
+
     }
-
-
 }
+

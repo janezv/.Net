@@ -1,20 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 
-public class HouseDbContext : DbContext
+namespace ApiPluralSight.Data
 {
-    public DbSet<HouseEntity> Houses => Set<HouseEntity>();
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public class HouseDbContext : DbContext
     {
-        base.OnConfiguring(optionsBuilder);
-        var folder = Environment.SpecialFolder.LocalApplicationData;
-        var path = Environment.GetFolderPath(folder);
-        optionsBuilder
-            .UseSqlite($"Data Source={Path.Join(path, "houses.db")}");
-    }
+        public DbSet<HouseEntity> Houses { get; set; } // Property za DbSet
 
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
-        SeedData.Seed(builder);
+        public HouseDbContext(DbContextOptions<HouseDbContext> options) : base(options) { } // Konstruktor, ki sprejme DbContextOptions
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            // Po potrebi inicializiraj podatke
+            SeedData.Seed(builder);
+        }
     }
 }

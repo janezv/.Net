@@ -1,3 +1,8 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ApiPluralSight.Data;
+//using Api.Data.HouseEntity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +12,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Add Db context
+var dbProvider = builder.Configuration.GetConnectionString("Provider");
+builder.Services.AddDbContext<HouseDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnectionStrings"));
+});
 
 var app = builder.Build();
 
@@ -42,6 +54,7 @@ app.MapGet("/weatherforecast", () =>
 var folder = Environment.SpecialFolder.LocalApplicationData;
 var path = Environment.GetFolderPath(folder);
 Console.WriteLine("SQLite je na: " + path);
+
 
 
 app.Run();
