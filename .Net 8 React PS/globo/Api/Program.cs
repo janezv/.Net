@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add Db context
-var dbProvider = builder.Configuration.GetConnectionString("Provider");
+var dbProvider = builder.Configuration.GetConnectionString("SqlServerConnectionStrings");
 // builder.Services.AddDbContext<HouseDbContext>(options =>
 // {
 //     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnectionStrings"));
