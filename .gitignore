@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 **/password.txt
 **/Migrations/
+.Net 8 React PS/globo/Api/Migrations/20250329071752_initial.cs
+.Net 8 React PS/globo/Api/Migrations/20250329071752_initial.Designer.cs
